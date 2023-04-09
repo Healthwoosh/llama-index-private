@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader
 
-app = Flask(__name__)
+app = Flask('app')
 
 documents = SimpleDirectoryReader('data').load_data()
 index = GPTSimpleVectorIndex.from_documents(documents)
@@ -17,3 +17,4 @@ def query_index():
 
 if __name__ == "__main__":
     app.run()
+
